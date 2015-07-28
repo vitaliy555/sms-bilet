@@ -5,31 +5,31 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.springapp.mvc"/>
+    <context:component-scan base-package="com"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <bean id="handlerMapping"
-          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="interceptors">
-            <list>
-                <ref bean="officeHoursInterceptor"/>
-            </list>
-        </property>
-        <property name="mappings">
-            <value>
-                /*=helloController
-                /hello=helloController
-            </value>
-        </property>
-    </bean>
+    <!--<bean id="handlerMapping"-->
+          <!--class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+        <!--<property name="interceptors">-->
+            <!--<list>-->
+                <!--<ref bean="officeHoursInterceptor"/>-->
+            <!--</list>-->
+        <!--</property>-->
+        <!--<property name="mappings">-->
+            <!--<value>-->
+                <!--/*=helloController-->
+                <!--/hello=helloController-->
+            <!--</value>-->
+        <!--</property>-->
+    <!--</bean>-->
 
-    <bean id="officeHoursInterceptor"
-          class="com.springapp.mvc.TimeBasedAccessInterceptor">
-        <property name="openingTime" value="9"/>
-        <property name="closingTime" value="18"/>
-    </bean>
+    <!--<bean id="officeHoursInterceptor"-->
+          <!--class="com.springapp.mvc.TimeBasedAccessInterceptor">-->
+        <!--<property name="openingTime" value="9"/>-->
+        <!--<property name="closingTime" value="18"/>-->
+    <!--</bean>-->
 </beans>
