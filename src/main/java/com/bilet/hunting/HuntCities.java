@@ -3,24 +3,30 @@ package com.bilet.hunting;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Collection;
+import java.util.List;
 
+import com.bilet.hunting.dto.Stations;
 import com.bilet.hunting.rest.RestHelper;
 import com.bilet.hunting.rest.cmd.CitiesAndIdCommand;
 import com.google.common.collect.Lists;
+import com.google.gson.Gson;
 
 public class HuntCities {
+    static Gson gson = new Gson();
+
     public static void main(String[] args) throws IOException {
         Collection<String> charCombinations = getCharCombinations(getAlphabet());
         for (String s : charCombinations) {
             System.out.println(s);
         }
-        System.out.println("SIZE :"+charCombinations.size());
+        System.out.println("SIZE :" + charCombinations.size());
 
+        List<Stations> stations = Lists.newArrayList();
         for (String charCombination : charCombinations) {
-//            RESTSetting restSetting = new RESTSetting("http://booking.uz.gov.ua/ru/purchase/station/"+charCombination+"/");
             RestHelper restHelper = new RestHelper(new CitiesAndIdCommand(charCombination));
-            restHelper.execute();
+            stations.add(gson.fromJson(restHelper.execute(), Stations.class));
         }
+        // TODO transformations
     }
 
     private static Collection<Cyrillic—har> getAlphabet() {
@@ -37,11 +43,13 @@ public class HuntCities {
         }
         return alphabet;
     }
-    private static Collection<String> getCharCombinations(Collection<Cyrillic—har> chars) throws UnsupportedEncodingException {
+
+    private static Collection<String> getCharCombinations(Collection<Cyrillic—har> chars)
+            throws UnsupportedEncodingException {
         Collection<String> resultCombinations = Lists.newArrayList();
         for (Cyrillic—har cyrillic—har : chars) {
             for (Cyrillic—har aChar : chars) {
-                resultCombinations.add(new String(new char[]{cyrillic—har.getChar(),aChar.getChar()}));
+                resultCombinations.add(new String(new char[] { cyrillic—har.getChar(), aChar.getChar() }));
             }
         }
         return resultCombinations;
