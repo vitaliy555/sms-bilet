@@ -63,20 +63,20 @@ public class CitiesDestination {
 
         byte firstByte = -48;
 
-        List<CyrillicÑharacter> alphabet = Lists.newArrayList();
+        List<CyrillicChar> alphabet = Lists.newArrayList();
         for (byte secondByte = -80; secondByte <= -65; secondByte++) {
-            alphabet.add(new CyrillicÑharacter(firstByte,secondByte));
+            alphabet.add(new CyrillicChar(firstByte,secondByte));
         }
 
-        for (CyrillicÑharacter cyrillicÑharacter : alphabet) {
-            System.out.println(cyrillicÑharacter.getChar());
+        for (CyrillicChar CyrillicChar : alphabet) {
+            System.out.println(CyrillicChar.getChar());
         }
     }
 
-    class CyrillicÑharacter {
+    class CyrillicChar {
         private byte[] bytes = new byte[2];
 
-        public CyrillicÑharacter(byte firstByte, byte secondByte) {
+        public CyrillicChar(byte firstByte, byte secondByte) {
             this.bytes[0] = firstByte;
             this.bytes[1] = secondByte;
         }

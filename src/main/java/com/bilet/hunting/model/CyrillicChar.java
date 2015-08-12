@@ -4,10 +4,10 @@ import com.google.common.base.Charsets;
 
 import java.io.UnsupportedEncodingException;
 
-public class Cyrillic—har {
+public class CyrillicChar {
     private byte[] bytes = new byte[2];
 
-    public Cyrillic—har(byte firstByte, byte secondByte) {
+    public CyrillicChar(byte firstByte, byte secondByte) {
         this.bytes[0] = firstByte;
         this.bytes[1] = secondByte;
     }
