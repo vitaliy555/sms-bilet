@@ -1,6 +1,6 @@
 package com.bilet.hunting.rest.cmd;
 
-abstract class AbstractJsonCommand extends AbstractBaseCommand {
+public abstract class AbstractJsonCommand extends AbstractBaseCommand {
     @Override
     public AcceptType getAcceptType() {
         return AcceptType.JSON;

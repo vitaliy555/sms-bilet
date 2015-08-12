@@ -6,8 +6,9 @@ import java.util.Collection;
 import java.util.List;
 
 import com.bilet.hunting.dto.Stations;
+import com.bilet.hunting.model.Cyrillic—har;
 import com.bilet.hunting.rest.RestHelper;
-import com.bilet.hunting.rest.cmd.CitiesAndIdCommand;
+import com.bilet.hunting.rest.cmd.custom_cmd.StationsCommand;
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 
@@ -23,7 +24,7 @@ public class HuntCities {
 
         List<Stations> stations = Lists.newArrayList();
         for (String charCombination : charCombinations) {
-            RestHelper restHelper = new RestHelper(new CitiesAndIdCommand(charCombination));
+            RestHelper restHelper = new RestHelper(new StationsCommand(charCombination));
             stations.add(gson.fromJson(restHelper.execute(), Stations.class));
         }
         // TODO transformations

@@ -1,4 +1,4 @@
-package com.bilet.hunting.dto;
+package com.bilet.hunting.model;
 
 public class StationTitleVsId {
     private String title;
