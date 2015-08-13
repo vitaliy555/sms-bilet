@@ -1,20 +1,14 @@
-package com.bilet.controllers;
+package com.tiket.controllers;
 
-import java.util.Collection;
-
-import com.bilet.hunting.services.UpdateStationsService;
-import com.google.common.collect.Lists;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.Response;
 
-import com.bilet.hunting.model.StationTitleVsId;
+import com.tiket.hunting.model.StationTitleVsId;
 
 
 @Controller

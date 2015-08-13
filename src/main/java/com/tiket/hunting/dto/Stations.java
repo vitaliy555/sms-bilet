@@ -1,21 +1,20 @@
-package com.bilet.hunting.dto;
+package com.tiket.hunting.dto;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.Collection;
 
 public class Stations {
 
-    ArrayList<StationNameAndID> value;
+    Collection<StationNameAndID> value;
 
-    public ArrayList<StationNameAndID> getValue() {
+    public Collection<StationNameAndID> getValue() {
         return value;
     }
 
-    public void setValue(ArrayList<StationNameAndID> value) {
+    public void setValue(Collection<StationNameAndID> value) {
         this.value = value;
     }
 
-    class StationNameAndID{
+    public static class StationNameAndID {
         String title;
         String station_id;
 

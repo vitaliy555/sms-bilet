@@ -1,4 +1,4 @@
-package com.bilet.hunting.rest.cmd;
+package com.tiket.hunting.rest.cmd;
 
 public interface Command {
     /**
@@ -80,5 +80,7 @@ public interface Command {
      * @return the path
      */
     String getPath();
+
+    Class getResponseType();
 
 }

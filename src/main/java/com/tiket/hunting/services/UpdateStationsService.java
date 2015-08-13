@@ -1,4 +1,4 @@
-package com.bilet.hunting.services;
+package com.tiket.hunting.services;
 
 import com.google.common.collect.Lists;
 

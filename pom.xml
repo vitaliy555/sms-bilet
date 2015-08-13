@@ -87,6 +87,21 @@
         </dependency>
         <!--Jersey-->
 
+        <!--Genson for convert to json pojo-->
+        <dependency>
+            <groupId>com.owlike</groupId>
+            <artifactId>genson</artifactId>
+            <version>0.99</version>
+        </dependency>
+        <!--Genson-->
+
+        <!--Json Provider-->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+        <!--Json Provider-->
 
         <dependency>
             <groupId>org.mockito</groupId>

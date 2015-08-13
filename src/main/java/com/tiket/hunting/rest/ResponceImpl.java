@@ -1,4 +1,4 @@
-package com.bilet.hunting.rest;
+package com.tiket.hunting.rest;
 
 import com.google.common.base.Optional;
 

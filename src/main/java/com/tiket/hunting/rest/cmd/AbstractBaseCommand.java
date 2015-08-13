@@ -1,8 +1,9 @@
-package com.bilet.hunting.rest.cmd;
+package com.tiket.hunting.rest.cmd;
 
-abstract class AbstractBaseCommand implements Command {
+abstract class AbstractBaseCommand<T> implements Command {
     private Method method;
     private String path;
+    private Class<T> responseType;
 
     @Override
     public Method getMethod() {
@@ -20,5 +21,13 @@ abstract class AbstractBaseCommand implements Command {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public Class<T> getResponseType() {
+        return responseType;
+    }
+
+    public void setResponseType(Class<T> responseType) {
+        this.responseType = responseType;
     }
 }

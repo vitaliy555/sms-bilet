@@ -1,16 +1,4 @@
-package com.bilet.hunting;
-
-import com.bilet.hunting.dto.Stations;
-import com.google.gson.Gson;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.util.Collection;
+package com.tiket.hunting;
 
 public class RESTSetting {
 //    Gson gson = new Gson();

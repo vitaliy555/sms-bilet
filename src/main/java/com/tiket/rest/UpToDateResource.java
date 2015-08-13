@@ -1,4 +1,4 @@
-package com.bilet.rest;
+package com.tiket.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

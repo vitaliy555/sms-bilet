@@ -1,4 +1,4 @@
-package com.bilet.hunting.model;
+package com.tiket.hunting.model;
 
 public class StationTitleVsId {
     private String title;
