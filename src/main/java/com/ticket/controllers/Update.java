@@ -1,5 +1,7 @@
-package com.tiket.controllers;
+package com.ticket.controllers;
 
+import com.ticket.hunting.connector.TicketClient;
+import com.ticket.hunting.rest.cmd.custom_cmd.StationsCommand;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.Response;
 
-import com.tiket.hunting.model.StationTitleVsId;
+import com.ticket.hunting.model.StationTitleVsId;
 
 
 @Controller
@@ -21,13 +23,18 @@ public class Update {
 
     @RequestMapping(value = "/stations",method = RequestMethod.GET)
     @Consumes("application/json")
-    public Response  getAllStations(ModelMap model) {
-        StationTitleVsId vsId = new StationTitleVsId();
-        vsId.setId("1");
-        vsId.setTitle("first");
-
-
-        return  Response.status(200).entity(vsId).build(); //"hello";
+    public String  getAllStations(ModelMap model) {
+        try {
+            Object result = new TicketClient().execute(new StationsCommand("ly"));
+            model.addAttribute("message", result.toString());
+        }catch (Throwable ex){
+            String stackTrace = null;
+            for (StackTraceElement stackTraceElement : ex.getStackTrace()) {
+                stackTrace+=stackTraceElement.toString();
+            }
+            model.addAttribute("message",stackTrace );
+        }
+        return  "hello"; //"hello";
     }
 // public @ResponseBody Collection<StationTitleVsId> getAllStations(ModelMap model) {
 //        Collection<StationTitleVsId> result = Lists.newArrayList();

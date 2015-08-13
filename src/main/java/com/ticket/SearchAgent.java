@@ -1,4 +1,4 @@
-package com.tiket;
+package com.ticket;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

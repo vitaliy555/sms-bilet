@@ -1,4 +1,4 @@
-package com.tiket.hunting.rest.cmd;
+package com.ticket.hunting.rest.cmd;
 
 public abstract class AbstractJsonCommand extends AbstractBaseCommand {
     @Override

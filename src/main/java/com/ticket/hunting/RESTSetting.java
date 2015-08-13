@@ -1,4 +1,4 @@
-package com.tiket.hunting;
+package com.ticket.hunting;
 
 public class RESTSetting {
 //    Gson gson = new Gson();

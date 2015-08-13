@@ -1,4 +1,4 @@
-package com.tiket.rest;
+package com.ticket.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

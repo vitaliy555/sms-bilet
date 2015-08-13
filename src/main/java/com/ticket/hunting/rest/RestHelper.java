@@ -1,6 +1,6 @@
-package com.tiket.hunting.rest;
+package com.ticket.hunting.rest;
 
-import com.tiket.hunting.rest.cmd.Command;
+import com.ticket.hunting.rest.cmd.Command;
 
 import java.io.BufferedReader;
 import java.io.IOException;

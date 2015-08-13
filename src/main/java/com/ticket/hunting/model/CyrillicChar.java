@@ -1,4 +1,4 @@
-package com.tiket.hunting.model;
+package com.ticket.hunting.model;
 
 import com.google.common.base.Charsets;
 

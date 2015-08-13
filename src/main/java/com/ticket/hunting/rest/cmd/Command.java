@@ -1,6 +1,6 @@
-package com.tiket.hunting.rest.cmd;
+package com.ticket.hunting.rest.cmd;
 
-public interface Command {
+public interface Command<T> {
     /**
      * The enum Method.
      */
@@ -81,6 +81,6 @@ public interface Command {
      */
     String getPath();
 
-    Class getResponseType();
+    Class<T> getResponseType();
 
 }

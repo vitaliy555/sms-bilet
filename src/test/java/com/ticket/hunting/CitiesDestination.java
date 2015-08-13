@@ -1,4 +1,4 @@
-package com.tiket.hunting;
+package com.ticket.hunting;
 
 import java.io.BufferedReader;
 import java.io.IOException;

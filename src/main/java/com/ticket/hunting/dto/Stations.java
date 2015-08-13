@@ -1,4 +1,4 @@
-package com.tiket.hunting.dto;
+package com.ticket.hunting.dto;
 
 import java.util.Collection;
 
@@ -33,5 +33,20 @@ public class Stations {
         public void setStation_id(String station_id) {
             this.station_id = station_id;
         }
+
+        @Override
+        public String toString() {
+            return "StationNameAndID{" +
+                    "title='" + title + '\'' +
+                    ", station_id='" + station_id + '\'' +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Stations{" +
+                "value=" + value +
+                '}';
     }
 }
