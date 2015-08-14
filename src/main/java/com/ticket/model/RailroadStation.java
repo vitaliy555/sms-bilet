@@ -1,8 +1,13 @@
-package com.ticket.hunting.model;
+package com.ticket.model;
 
-public class StationTitleVsId {
+public class    RailroadStation {
     private String title;
     private String id;
+
+    public RailroadStation(String title, String id) {
+        this.title = title;
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

@@ -1,6 +1,6 @@
 package com.ticket.hunting.rest;
 
-import com.ticket.hunting.rest.cmd.Command;
+import com.ticket.connector.cmd.Command;
 
 import java.io.BufferedReader;
 import java.io.IOException;

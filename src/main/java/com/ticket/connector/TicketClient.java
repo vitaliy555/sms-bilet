@@ -1,4 +1,4 @@
-package com.ticket.hunting.connector;
+package com.ticket.connector;
 
 import javax.ws.rs.core.MediaType;
 
@@ -7,8 +7,8 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
-import static com.ticket.hunting.rest.cmd.Command.Method.*;
-import com.ticket.hunting.rest.cmd.Command;
+import static com.ticket.connector.cmd.Command.Method.*;
+import com.ticket.connector.cmd.Command;
 
 public class TicketClient {
 
@@ -18,12 +18,11 @@ public class TicketClient {
 
     public <T> T execute(final Command<T> command) {
         WebResource webResource = client.resource(command.getPath());//"http://booking.uz.gov.ua/purchase/station/ly/"
-        //TODO refactoring hardcore
-        webResource.accept(MediaType.APPLICATION_JSON);
+        webResource.accept(command.getAcceptType());
         if (command.getMethod().equals(GET)) {
             return (T) webResource.get(command.getResponseType());
         }
-        // go to normal answer
+        //TODO go to normal answer
         return null;
     }
 }

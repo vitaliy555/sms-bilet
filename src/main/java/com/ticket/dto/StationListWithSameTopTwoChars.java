@@ -1,8 +1,8 @@
-package com.ticket.hunting.dto;
+package com.ticket.dto;
 
 import java.util.Collection;
 
-public class Stations {
+public class StationListWithSameTopTwoChars {
 
     Collection<StationNameAndID> value;
 

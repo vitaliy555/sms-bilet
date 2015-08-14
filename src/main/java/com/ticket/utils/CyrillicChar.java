@@ -1,4 +1,4 @@
-package com.ticket.hunting.model;
+package com.ticket.utils;
 
 import com.google.common.base.Charsets;
 

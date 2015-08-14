@@ -1,9 +1,11 @@
-package com.ticket.hunting.rest.cmd;
+package com.ticket.connector.cmd;
+
+import javax.ws.rs.core.MediaType;
 
 public abstract class AbstractJsonCommand extends AbstractBaseCommand {
     @Override
-    public AcceptType getAcceptType() {
-        return AcceptType.JSON;
+    public String getAcceptType() {
+        return MediaType.APPLICATION_JSON;
     }
 
     @Override

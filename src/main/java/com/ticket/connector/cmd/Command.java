@@ -1,4 +1,4 @@
-package com.ticket.hunting.rest.cmd;
+package com.ticket.connector.cmd;
 
 public interface Command<T> {
     /**
@@ -24,20 +24,6 @@ public interface Command<T> {
     }
 
     /**
-     * The enum Accept type.
-     */
-    enum AcceptType {
-        /**
-         * The XML.
-         */
-        XML,
-        /**
-         * The JSON.
-         */
-        JSON
-    }
-
-    /**
      * The enum Content type.
      */
     enum ContentType {
@@ -58,7 +44,7 @@ public interface Command<T> {
      * Gets accept type
      * @return the accept type
      */
-    AcceptType getAcceptType();
+    String getAcceptType();
 
     /**
      * Gets content type.

@@ -1,4 +1,4 @@
-package com.ticket.hunting.rest.cmd;
+package com.ticket.connector.cmd;
 
 abstract class AbstractBaseCommand<T> implements Command {
     private Method method;
