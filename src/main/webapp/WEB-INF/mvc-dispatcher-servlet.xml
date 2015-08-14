@@ -7,29 +7,31 @@
 
     <context:component-scan base-package="com.ticket.controllers"/>
 
+    <!--RESOLVING VIEW BY ORDER-->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1"/>
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json"/>
+            </map>
+        </property>
+
+        <property name="defaultViews">
+            <list>
+                <!-- JSON View -->
+                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+            </list>
+        </property>
+        <property name="ignoreAcceptHeader" value="true"/>
+
+    </bean>
+
+    <!-- If no extension matched, use JSP view -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="2"/>
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <!--RESOLVING VIEW BY ORDER!-->
 
-    <!--<bean id="handlerMapping"-->
-          <!--class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
-        <!--<property name="interceptors">-->
-            <!--<list>-->
-                <!--<ref bean="officeHoursInterceptor"/>-->
-            <!--</list>-->
-        <!--</property>-->
-        <!--<property name="mappings">-->
-            <!--<value>-->
-                <!--/*=helloController-->
-                <!--/hello=helloController-->
-            <!--</value>-->
-        <!--</property>-->
-    <!--</bean>-->
-
-    <!--<bean id="officeHoursInterceptor"-->
-          <!--class="com.springapp.mvc.TimeBasedAccessInterceptor">-->
-        <!--<property name="openingTime" value="9"/>-->
-        <!--<property name="closingTime" value="18"/>-->
-    <!--</bean>-->
 </beans>
