@@ -14,10 +14,10 @@ import com.ticket.utils.CyrillicCharHelper;
 
 public class UpdateRailroadStationService {
     private static final int NTHREDS = 20;
-    private static final ExecutorService executor = Executors.newFixedThreadPool(NTHREDS);
 
     public Collection<RailroadStation> updateRailroadStation() {
-        Collection<RailroadStation> updatedRailroadStation = Lists.newArrayList();
+        final Collection<RailroadStation> updatedRailroadStation = Lists.newArrayList();
+        final ExecutorService executor = Executors.newFixedThreadPool(NTHREDS);
         for (String twoChars : CyrillicCharHelper.getCharCombinations()) {
             executor.execute(new UpdateRailroadStationWorker(twoChars, updatedRailroadStation));
         }
@@ -30,7 +30,7 @@ public class UpdateRailroadStationService {
 
     private Collection<RailroadStation> convertToRailroadStation(
             final StationListWithSameTopTwoChars stationsStartWithSameChar) {
-        Collection<RailroadStation> railroadStations = Lists.newArrayList();
+        final Collection<RailroadStation> railroadStations = Lists.newArrayList();
         for (StationListWithSameTopTwoChars.StationNameAndID stationNameAndID : stationsStartWithSameChar.getValue()) {
             railroadStations.add(new RailroadStation(stationNameAndID.getTitle(), stationNameAndID.getStation_id()));
         }
@@ -38,8 +38,8 @@ public class UpdateRailroadStationService {
     }
 
     class UpdateRailroadStationWorker implements Runnable {
-        String twoChars;
-        Collection<RailroadStation> updatedRailroadStation;
+        final String twoChars;
+        final Collection<RailroadStation> updatedRailroadStation;
 
         public UpdateRailroadStationWorker(String twoChars, Collection<RailroadStation> updatedRailroadStation) {
             this.twoChars = twoChars;
