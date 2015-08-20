@@ -5,35 +5,6 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.ticket"/>
+    <context:component-scan base-package="com.ticket.config"/>
 
-    <!--RESOLVING VIEW BY ORDER-->
-    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <property name="order" value="1"/>
-        <property name="mediaTypes">
-            <map>
-                <entry key="json" value="application/json"/>
-            </map>
-        </property>
-
-        <property name="defaultViews">
-            <list>
-                <!-- JSON View -->
-                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
-            </list>
-        </property>
-        <property name="ignoreAcceptHeader" value="true"/>
-
-    </bean>
-
-    <!-- If no extension matched, use JSP view -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="order" value="2"/>
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
-    <!--RESOLVING VIEW BY ORDER!-->
-
-
-    <bean id="updateRailroadStationService" class="com.ticket.services.UpdateRailroadStationService" />
 </beans>
