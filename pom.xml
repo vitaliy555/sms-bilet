@@ -35,6 +35,14 @@
         </dependency>
         <!-- Spring 4 dependencies -->
 
+        <!-- Spring Data -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.8.2.RELEASE</version>
+        </dependency>
+        <!-- Spring Data -->
+
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
@@ -145,6 +153,14 @@
             <artifactId>gson</artifactId>
             <version>2.2.2</version>
         </dependency>
+
+        <!--For work with DataBase-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.0.3.RELEASE</version>
+        </dependency>
+        <!--For work with DataBase-->
 
     </dependencies>
 
