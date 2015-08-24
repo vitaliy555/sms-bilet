@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.View;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 import com.ticket.services.UpdateRailroadStationService;
 
 //@EnableJpaRepositories
+@Import({DBConfig.class})
 @EnableWebMvc
 @Configuration
 @ComponentScan("com.ticket")
@@ -64,16 +66,5 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Bean(name = "updateRailroadStationService")
     public UpdateRailroadStationService setupUpdateRailroadStationService() {
         return new UpdateRailroadStationService();
-    }
-
-    @Bean(name = "pgDataSourse")
-    public DriverManagerDataSource setupDriverManagerDataSource(){
-        DriverManagerDataSource pgDataSource = new DriverManagerDataSource();
-        //TODO move to constants
-        pgDataSource.setDriverClassName("org.postgresql.Driver");
-        pgDataSource.setUrl("jdbc:postgresql://localhost:5432/smsTicket");
-        pgDataSource.setUsername("postgres");
-        pgDataSource.setPassword("");
-        return pgDataSource;
     }
 }

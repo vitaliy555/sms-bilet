@@ -1,7 +1,17 @@
-package com.ticket.model;
+package com.ticket.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="RailroadStation")
 public class    RailroadStation {
+
+    @Column(nullable=false)
     private String title;
+    @Id
     private String id;
 
     public RailroadStation(String title, String id) {

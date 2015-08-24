@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.google.common.collect.Lists;
 import com.ticket.connector.TicketClient;
 import com.ticket.connector.cmd.custom_cmd.StationsCommand;
-import com.ticket.dao.RailroadStationRepository;
+import com.ticket.repositories.RailroadStationRepository;
 import com.ticket.dto.StationListWithSameTopTwoChars;
-import com.ticket.model.RailroadStation;
+import com.ticket.entity.RailroadStation;
 import com.ticket.utils.CyrillicCharHelper;
 
 public class UpdateRailroadStationService {

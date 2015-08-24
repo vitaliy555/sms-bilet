@@ -10,7 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ticket.model.RailroadStation;
+import com.ticket.entity.RailroadStation;
 import com.ticket.services.UpdateRailroadStationService;
 
 @Controller

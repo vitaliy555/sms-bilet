@@ -4,10 +4,9 @@ import static org.junit.Assert.assertFalse;
 
 import java.util.Collection;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import com.ticket.model.RailroadStation;
+import com.ticket.entity.RailroadStation;
 
 public class UpdateRailroadStationRepositoryServiceTest {
     private UpdateRailroadStationService stationService = new UpdateRailroadStationService();
