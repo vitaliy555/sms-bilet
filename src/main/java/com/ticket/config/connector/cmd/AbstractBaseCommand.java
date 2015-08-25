@@ -1,4 +1,4 @@
-package com.ticket.connector.cmd;
+package com.ticket.config.connector.cmd;
 
 abstract class AbstractBaseCommand<T> implements Command {
     private Method method;

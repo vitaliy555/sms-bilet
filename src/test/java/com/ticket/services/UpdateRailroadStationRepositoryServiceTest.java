@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.ticket.entity.RailroadStation;
 
 public class UpdateRailroadStationRepositoryServiceTest {
-    private UpdateRailroadStationService stationService = new UpdateRailroadStationService();
+    private RailroadStationService stationService = new RailroadStationService();
 
 //    @Ignore
     @Test

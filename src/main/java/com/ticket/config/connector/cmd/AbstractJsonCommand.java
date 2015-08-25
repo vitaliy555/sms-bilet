@@ -1,4 +1,4 @@
-package com.ticket.connector.cmd;
+package com.ticket.config.connector.cmd;
 
 import javax.ws.rs.core.MediaType;
 

@@ -4,25 +4,25 @@ import java.util.Collection;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.ticket.utils.SmsTicketConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
-import com.ticket.connector.TicketClient;
-import com.ticket.connector.cmd.custom_cmd.StationsCommand;
+import com.ticket.config.connector.TicketClient;
+import com.ticket.config.connector.cmd.custom_cmd.StationsCommand;
 import com.ticket.dto.StationListWithSameTopTwoChars;
 import com.ticket.entity.RailroadStation;
 import com.ticket.repositories.RailroadStationRepository;
 import com.ticket.utils.CyrillicCharHelper;
 
-public class UpdateRailroadStationService {
-    private static final int NTHREDS = 20;
+public class RailroadStationService {
+
     @Autowired
     RailroadStationRepository stationRepository;
 
     public Collection<RailroadStation> updateRailroadStation() {
         final Collection<RailroadStation> updatedRailroadStation = Lists.newArrayList();
-        final ExecutorService executor = Executors.newFixedThreadPool(NTHREDS);
+        final ExecutorService executor = Executors.newFixedThreadPool(SmsTicketConstants.NTHREDS);
         for (String twoChars : CyrillicCharHelper.getCharCombinations()) {
             executor.execute(new UpdateRailroadStationWorker(twoChars, updatedRailroadStation));
         }
@@ -30,7 +30,7 @@ public class UpdateRailroadStationService {
         // need some time to finish all threads
         while (!executor.isTerminated()) {
         }
-        doSomeWithDB(updatedRailroadStation);
+        stationRepository.save(updatedRailroadStation);
         return updatedRailroadStation;
     }
 
@@ -61,12 +61,4 @@ public class UpdateRailroadStationService {
         }
     }
 
-    private void doSomeWithDB(Collection<RailroadStation> updatedRailroadStation) {
-        Iterable<RailroadStation> savedRailroadStation = stationRepository.save(updatedRailroadStation);
-        int size = 0;
-        if (savedRailroadStation instanceof Collection) {
-            size = ((Collection) savedRailroadStation).size();
-        }
-        System.out.println("SAVED :" + size);
-    }
 }

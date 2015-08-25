@@ -1,7 +1,7 @@
-package com.ticket.connector.cmd.custom_cmd;
+package com.ticket.config.connector.cmd.custom_cmd;
 
 import com.ticket.dto.StationListWithSameTopTwoChars;
-import com.ticket.connector.cmd.AbstractJsonCommand;
+import com.ticket.config.connector.cmd.AbstractJsonCommand;
 
 public class StationsCommand extends AbstractJsonCommand {
     private static final String SEARCH_STATIONS_URL = "http://booking.uz.gov.ua/ru/purchase/station/";

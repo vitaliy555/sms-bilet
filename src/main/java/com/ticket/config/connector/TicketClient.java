@@ -1,14 +1,12 @@
-package com.ticket.connector;
-
-import javax.ws.rs.core.MediaType;
+package com.ticket.config.connector;
 
 import com.owlike.genson.ext.jaxrs.GensonJsonConverter;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
-import static com.ticket.connector.cmd.Command.Method.*;
-import com.ticket.connector.cmd.Command;
+import static com.ticket.config.connector.cmd.Command.Method.*;
+import com.ticket.config.connector.cmd.Command;
 
 public class TicketClient {
 
