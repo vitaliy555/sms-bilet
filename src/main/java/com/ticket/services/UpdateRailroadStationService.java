@@ -6,12 +6,13 @@ import java.util.concurrent.Executors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.ticket.connector.TicketClient;
 import com.ticket.connector.cmd.custom_cmd.StationsCommand;
-import com.ticket.repositories.RailroadStationRepository;
 import com.ticket.dto.StationListWithSameTopTwoChars;
 import com.ticket.entity.RailroadStation;
+import com.ticket.repositories.RailroadStationRepository;
 import com.ticket.utils.CyrillicCharHelper;
 
 public class UpdateRailroadStationService {
@@ -20,7 +21,6 @@ public class UpdateRailroadStationService {
     RailroadStationRepository stationRepository;
 
     public Collection<RailroadStation> updateRailroadStation() {
-        doSomeWithDB();
         final Collection<RailroadStation> updatedRailroadStation = Lists.newArrayList();
         final ExecutorService executor = Executors.newFixedThreadPool(NTHREDS);
         for (String twoChars : CyrillicCharHelper.getCharCombinations()) {
@@ -30,6 +30,7 @@ public class UpdateRailroadStationService {
         // need some time to finish all threads
         while (!executor.isTerminated()) {
         }
+        doSomeWithDB(updatedRailroadStation);
         return updatedRailroadStation;
     }
 
@@ -60,8 +61,12 @@ public class UpdateRailroadStationService {
         }
     }
 
-    private void doSomeWithDB() {
-        Iterable<RailroadStation> all = stationRepository.findAll();
-        System.out.println("First station title :"+all.iterator().next().getTitle());
+    private void doSomeWithDB(Collection<RailroadStation> updatedRailroadStation) {
+        Iterable<RailroadStation> savedRailroadStation = stationRepository.save(updatedRailroadStation);
+        int size = 0;
+        if (savedRailroadStation instanceof Collection) {
+            size = ((Collection) savedRailroadStation).size();
+        }
+        System.out.println("SAVED :" + size);
     }
 }
