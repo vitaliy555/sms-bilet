@@ -6,13 +6,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="RailroadStation")
-public class    RailroadStation {
+@Table(name = "RailroadStation")
+public class RailroadStation {
 
-    @Column(nullable=false)
-    private String title;
     @Id
     private String id;
+
+    @Column(nullable = false)
+    private String title;
+
+    public RailroadStation() {
+    }
 
     public RailroadStation(String title, String id) {
         this.title = title;

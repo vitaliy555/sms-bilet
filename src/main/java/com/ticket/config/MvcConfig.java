@@ -7,8 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -17,11 +15,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import com.ticket.services.UpdateRailroadStationService;
 
-//@EnableJpaRepositories
 @Import({DBConfig.class})
 @EnableWebMvc
 @Configuration
@@ -42,7 +39,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public ContentNegotiatingViewResolver setupContentNegotiatingViewResolver() {
         ContentNegotiatingViewResolver negotiatingViewResolver = new ContentNegotiatingViewResolver();
         negotiatingViewResolver.setOrder(1);
-        negotiatingViewResolver.setDefaultViews(Collections.<View>singletonList(new MappingJacksonJsonView()));
+        negotiatingViewResolver.setDefaultViews(Collections.<View>singletonList(new MappingJackson2JsonView()));
         negotiatingViewResolver.setMediaTypes(new HashMap<String, String>() {
             {
                 put("json", "application/json");
