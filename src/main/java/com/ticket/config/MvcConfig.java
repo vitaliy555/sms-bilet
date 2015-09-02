@@ -3,6 +3,7 @@ package com.ticket.config;
 import java.util.Collections;
 import java.util.HashMap;
 
+import com.ticket.services.TrainService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -60,8 +61,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-    @Bean(name = "updateRailroadStationService")
-    public RailroadStationService setupUpdateRailroadStationService() {
+    @Bean
+    public RailroadStationService setUpRailroadStationService() {
         return new RailroadStationService();
     }
+    @Bean
+    public TrainService setUpTrainService(){return  new TrainService();}
 }

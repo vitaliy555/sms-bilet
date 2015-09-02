@@ -6,7 +6,7 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import com.ticket.entity.RailroadStation;
+import com.ticket.entity.Station;
 
 public class UpdateRailroadStationRepositoryServiceTest {
     private RailroadStationService stationService = new RailroadStationService();
@@ -15,7 +15,7 @@ public class UpdateRailroadStationRepositoryServiceTest {
     @Test
     public void testUpdateRailroadStation() throws Exception {
         long startTime = System.currentTimeMillis();
-        Collection<RailroadStation> railroadStations = stationService.updateRailroadStation();
+        Collection<Station> railroadStations = stationService.updateByBookingStation();
         long stopTimeInSec = (System.currentTimeMillis() - startTime) / 1000;
         System.out.println("Summary time in sec = "+stopTimeInSec);
         assertFalse(railroadStations.isEmpty());

@@ -1,6 +1,7 @@
 package com.springapp.mvc;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.jsoup.Jsoup;
@@ -17,19 +18,27 @@ public class UzGovUa {
     public static final int COUNT_CELLS = 9;
 
     public static void main(String[] args) {
-        Document doc = null;
-        try {
-            doc = Jsoup
-                    .connect(
-                            "http://www.uz.gov.ua/passengers/timetables/?from_station=22700&to_station=23600%2C23629&select_time=2&time_from=00&time_to=24&by_route=%D0%9F%D0%BE%D1%88%D1%83%D0%BA")
-                    .get();
-            Elements elements = doc.select(SELECT_ALL_TRAIN_ELEMENTS);
-            Collection<Train> trains = convertToTrains(elements);
-            System.out.println(trains.size());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(doc.outerHtml());
+
+        ArrayList<String> mass = Lists.newArrayList();
+        mass.add("a");
+        mass.add("b");
+        mass.add("c");
+        System.out.println(mass);
+
+//
+//        Document doc = null;
+//        try {
+//            doc = Jsoup
+//                    .connect(
+//                            "http://www.uz.gov.ua/passengers/timetables/?from_station=22700&to_station=23600%2C23629&select_time=2&time_from=00&time_to=24&by_route=%D0%9F%D0%BE%D1%88%D1%83%D0%BA")
+//                    .get();
+//            Elements elements = doc.select(SELECT_ALL_TRAIN_ELEMENTS);
+//            Collection<Train> trains = convertToTrains(elements);
+//            System.out.println(trains.size());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(doc.outerHtml());
     }
 
     private static Collection<Train> convertToTrains(Elements elements) {
