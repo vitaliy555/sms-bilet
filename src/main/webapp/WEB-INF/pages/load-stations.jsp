@@ -7,13 +7,13 @@
 
 <table style="width:100%">
   <tr>
-    <th>Title Railroad Station</th>
+    <th>Title Station</th>
     <th>Id</th>
   </tr>
-  <c:forEach items="${railroadStations}" var="railroadStation">
+  <c:forEach items="${stations}" var="station">
      <tr>
-         <td>${railroadStation.title}</td>
-         <td>${railroadStation.id}</td>
+                  <td>${station.id}</td>
+<td>${station.title}</td>
        </tr>
   </c:forEach>
 </table>

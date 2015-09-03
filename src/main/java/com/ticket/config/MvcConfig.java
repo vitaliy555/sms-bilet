@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
-import com.ticket.services.RailroadStationService;
+import com.ticket.services.StationService;
 
 @Import({DBConfig.class})
 @EnableWebMvc
@@ -62,8 +62,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public RailroadStationService setUpRailroadStationService() {
-        return new RailroadStationService();
+    public StationService setUpStationService() {
+        return new StationService();
     }
     @Bean
     public TrainService setUpTrainService(){return  new TrainService();}

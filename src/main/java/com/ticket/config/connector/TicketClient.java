@@ -8,6 +8,8 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 import static com.ticket.config.connector.cmd.Command.Method.*;
 import com.ticket.config.connector.cmd.Command;
 
+import javax.ws.rs.core.Cookie;
+
 public class TicketClient {
 
     private final static ClientConfig clientConfig = new DefaultClientConfig(GensonJsonConverter.class);
@@ -17,6 +19,7 @@ public class TicketClient {
     public <T> T execute(final Command<T> command) {
         WebResource webResource = client.resource(command.getPath());//"http://booking.uz.gov.ua/purchase/station/ly/"
         webResource.accept(command.getAcceptType());
+        webResource.cookie(command.getCookie());
         if (command.getMethod().equals(GET)) {
             return (T) webResource.get(command.getResponseType());
         }

@@ -1,5 +1,7 @@
 package com.ticket.config.connector.cmd;
 
+import javax.ws.rs.core.Cookie;
+
 public interface Command<T> {
     /**
      * The enum Method.
@@ -40,6 +42,13 @@ public interface Command<T> {
          */
         JSON
     }
+
+    /**
+     * Gets cookies
+     * @return
+     */
+    Cookie getCookie();
+
     /**
      * Gets accept type
      * @return the accept type

@@ -5,14 +5,14 @@ import com.ticket.config.connector.cmd.AbstractJsonCommand;
 import com.ticket.config.connector.cmd.Command;
 import com.ticket.dto.StationListWithSameTopTwoChars;
 
-public class StationsByUzCommand extends AbstractJsonCommand {
+public class SearchUZStationsCmd extends AbstractJsonCommand {
     private static final String SEARCH_STATIONS_URL = "http://www.uz.gov.ua/passengers/timetables/suggest-station/?q=";
 
     /**
      * Instantiates a new Add product to cart.
      *
      */
-    public StationsByUzCommand() {
+    public SearchUZStationsCmd() {
 //        .get(GenericType.getClass(String.class))
         setResponseType(String.class);
         setMethod(Method.GET);

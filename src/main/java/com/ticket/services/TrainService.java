@@ -14,7 +14,7 @@ public class TrainService {
     }
 
 //    public void UpdateRoutes() {
-//        Iterable<RailroadStation> stations = stationRepository.findAll();
+//        Iterable<RailroadStation> stations = bookingStationsRepository.findAll();
 //        for (RailroadStation stationFrom : stations) {
 //            for (RailroadStation stationTill : stations) {
 ////TODO request to service

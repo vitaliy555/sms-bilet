@@ -6,37 +6,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Station")
-public class Station {
-
+@Table(name = "UZStation")
+public class UZStation {
     @Id
-    private String bookingId;
-    @Column(nullable = false)
     private String uzId;
     @Column(nullable = false)
     private String title;
 
-    public Station() {
+    public UZStation() {
     }
 
-    public Station(String title, String bookingId) {
+    public UZStation(String uzId, String title) {
+        this.uzId = uzId;
         this.title = title;
-        this.bookingId = bookingId;
     }
 
-    public String getBookingId() {
-        return bookingId;
-    }
-
-    public void setBookingId(String bookingId) {
-        this.bookingId = bookingId;
-    }
-
-    public String getUzId() {
+    public String getIdUZ() {
         return uzId;
     }
 
-    public void setUzId(String uzId) {
+    public void setIdUZ(String uzId) {
         this.uzId = uzId;
     }
 
