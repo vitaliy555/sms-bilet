@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.ticket.entity.UZStation;
+import com.ticket.services.Convertor.StationsConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.common.collect.Lists;
@@ -34,12 +36,12 @@ public class StationService {
         while (!executor.isTerminated()) {
         }
         //TODO refactorig
-        nullCurter(loaded);
+        nullCuter(loaded);
         bookingStationsRepository.save(loaded);
         return loaded;
     }
 //TODO it can be fix ? it make me boring
-    private void nullCurter(Collection<BookingStation> stations) {
+    private void nullCuter(Collection<BookingStation> stations) {
         Collection<BookingStation> nullable = Lists.newArrayList();
         for (BookingStation station : stations) {
             if (station == null) {
@@ -49,11 +51,10 @@ public class StationService {
         stations.removeAll(nullable);
     }
 
-    public Collection<BookingStation> loadUZStations() {
+    public Collection<UZStation> loadUZStations() {
         final Collection<BookingStation> loaded = Lists.newArrayList();
-        String answer = (String) new TicketClient().execute(new SearchUZStationsCmd());
-
-        return null;
+        final String stations = (String) new TicketClient().execute(new SearchUZStationsCmd());
+        return StationsConverter.convertToUzStations(stations);
     }
 
     private Collection<BookingStation> convertToBookingStation(

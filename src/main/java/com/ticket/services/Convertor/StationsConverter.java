@@ -6,20 +6,32 @@ import java.util.TreeSet;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
 import com.ticket.entity.UZStation;
-import com.ticket.utils.SmsTicketConstants;
 
 public class StationsConverter {
 
-    public Collection<UZStation> convertToUzStations(String stationsToConvert) {
-        Set<String> stations = new TreeSet();
-        stations.addAll(Splitter.on(CharMatcher.anyOf(SmsTicketConstants.REG_STATION)).trimResults().splitToList(stationsToConvert));
-        stations.remove(",");
-        String[] title_id = new String[2];
-        for (String station : stations) {
-            title_id= station.split(REG_TITLE_ID);
-            new UZStation(title_id)
+    public static final String REG_STATION = "\"[]";
+    public static final String DELIMITER_TITLE_ID = "~";
+
+    public static Collection<UZStation> convertToUzStations(String stations) {
+        Collection<UZStation> uzStations = Lists.newArrayList();
+        for (String station : obtainStations(stations)) {
+            String[] titleAndId = station.split(DELIMITER_TITLE_ID);
+            try {
+                uzStations.add(new UZStation(titleAndId[0], titleAndId[1]));
+            } catch (Exception e) {
+                System.out.println(titleAndId);
+            }
         }
-        return ;
+        return uzStations;
+    }
+
+    private static Collection<String> obtainStations(String stations) {
+        Set<String> obtained = new TreeSet();
+        obtained.addAll(Splitter.on(CharMatcher.anyOf(REG_STATION)).trimResults().splitToList(stations));
+        obtained.remove(",");
+        obtained.remove("");
+        return obtained;
     }
 }

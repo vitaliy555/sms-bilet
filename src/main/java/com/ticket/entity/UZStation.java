@@ -11,30 +11,24 @@ import javax.persistence.Table;
 @Table(name = "UZStation")
 public class UZStation {
     @Id
-    private String uzId;
+    private String id;
     @Column(nullable = false)
     private String title;
 
     public UZStation() {
     }
 
-    public UZStation(String uzId, String title) {
-        this.uzId = uzId;
+    public UZStation(String id, String title) {
+        this.id = id;
         this.title = title;
     }
 
-    public UZStation(String titleAndId) {
-        String[] splitedTitleFromId = titleAndId.split(SmsTicketConstants.DELIMITER_TITLE_ID);
-        this.uzId = splitedTitleFromId[0];
-        this.title = splitedTitleFromId[1];
-    }
-
     public String getIdUZ() {
-        return uzId;
+        return id;
     }
 
-    public void setIdUZ(String uzId) {
-        this.uzId = uzId;
+    public void setIdUZ(String id) {
+        this.id = id;
     }
 
     public String getTitle() {

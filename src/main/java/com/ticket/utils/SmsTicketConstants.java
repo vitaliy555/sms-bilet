@@ -5,7 +5,6 @@ package com.ticket.utils;
  */
 public class SmsTicketConstants {
     public static final int NTHREDS = 20;
-    public static final String REG_STATION = "\"[";
-    public static final String DELIMITER_TITLE_ID = "~";
+
 
 }

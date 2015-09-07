@@ -12,12 +12,12 @@
   </tr>
   <c:forEach items="${stations}" var="station">
      <tr>
-                  <td>${station.id}</td>
-<td>${station.title}</td>
-       </tr>
+        <td>${station.id}</td>
+        <td>${station.title}</td>
+     </tr>
   </c:forEach>
 </table>
-<p>Count Railroad Station : ${countStations}</p>
+<p>Count Station : ${countStations}</p>
 <p>Summary Time  : ${timeInSec}</p>
 
 </body>
