@@ -4,20 +4,8 @@
 <!DOCTYPE html>
 <html>
 <body>
+<p>${isLoaded}</p>
 
-<table style="width:100%">
-  <tr>
-    <th>Title Station</th>
-    <th>Id</th>
-  </tr>
-  <c:forEach items="${stations}" var="station">
-     <tr>
-        <td>${station.id}</td>
-        <td>${station.title}</td>
-     </tr>
-  </c:forEach>
-</table>
-<p>Count Station : ${countStations}</p>
 <p>Summary Time  : ${timeInSec}</p>
 
 </body>

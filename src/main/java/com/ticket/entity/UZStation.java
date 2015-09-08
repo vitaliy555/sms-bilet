@@ -11,8 +11,9 @@ import javax.persistence.Table;
 @Table(name = "UZStation")
 public class UZStation {
     @Id
+    @Column(name = "id")
     private String id;
-    @Column(nullable = false)
+    @Column(name = "title")
     private String title;
 
     public UZStation() {
@@ -23,11 +24,11 @@ public class UZStation {
         this.title = title;
     }
 
-    public String getIdUZ() {
+    public String getId() {
         return id;
     }
 
-    public void setIdUZ(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 

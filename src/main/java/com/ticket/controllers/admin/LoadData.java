@@ -21,29 +21,39 @@ public class LoadData {
 
     @Autowired
     StationService stationService;
-    @Autowired
-    TrainService trainService;
+//    @Autowired
+//    TrainService trainService;
 
-    @RequestMapping(value = "/booking", method = RequestMethod.GET)
-    @Consumes("application/json")
-    public String updateStations(ModelMap model) {
-        long startTime = System.currentTimeMillis();
-        Collection<BookingStation> railroadStations = stationService.loadBookingStations();
-        long stopTimeInSec = (System.currentTimeMillis() - startTime) / 1000;
-        model.addAttribute("stations", railroadStations);
-        model.addAttribute("countStations", railroadStations.size());
-        model.addAttribute("timeInSec", stopTimeInSec);
-        return "load-stations";
-    }
+//    @RequestMapping(value = "/booking", method = RequestMethod.GET)
+//    @Consumes("application/json")
+//    public String updateStations(ModelMap model) {
+//        long startTime = System.currentTimeMillis();
+//        Collection<BookingStation> stations = stationService.loadBookingStations();
+//        long stopTimeInSec = (System.currentTimeMillis() - startTime) / 1000;
+//        model.addAttribute("stations", stations);
+//        model.addAttribute("countStations", stations.size());
+//        model.addAttribute("timeInSec", stopTimeInSec);
+//        return "load-stations";
+//    }
+//
+//    @RequestMapping(value = "/uz", method = RequestMethod.GET)
+//     @Consumes("application/json")
+//     public String updateStationsUZ(ModelMap model) {
+//        long startTime = System.currentTimeMillis();
+//        Collection<UZStation> stations = stationService.loadUZStations();
+//        long stopTimeInSec = (System.currentTimeMillis() - startTime) / 1000;
+//        model.addAttribute("stations", stations);
+//        model.addAttribute("countStations", stations.size());
+//        model.addAttribute("timeInSec", stopTimeInSec);
+//        return "load-stations";
+//    }
 
-    @RequestMapping(value = "/uz", method = RequestMethod.GET)
-     @Consumes("application/json")
-     public String updateStationsUZ(ModelMap model) {
+    @RequestMapping(value = "/st", method = RequestMethod.GET)
+    public String loadStations(ModelMap model) {
         long startTime = System.currentTimeMillis();
-        Collection<UZStation> railroadStations = stationService.loadUZStations();
+        boolean isLoaded = stationService.loadStations();
         long stopTimeInSec = (System.currentTimeMillis() - startTime) / 1000;
-        model.addAttribute("railroadStations", railroadStations);
-        model.addAttribute("countStations", railroadStations.size());
+        model.addAttribute("isLoaded", isLoaded);
         model.addAttribute("timeInSec", stopTimeInSec);
         return "load-stations";
     }
