@@ -9,6 +9,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.ticket.dto.StationListWithSameTopTwoChars;
 import com.ticket.entity.BookingStation;
+import com.ticket.entity.SelfStation;
 import com.ticket.entity.UZStation;
 
 public class StationsConverter {
@@ -37,12 +38,20 @@ public class StationsConverter {
         return obtained;
     }
 
-    public static Collection<BookingStation> convertToBookingStation(
+    public static Collection<BookingStation> convertToBookingStations(
             final StationListWithSameTopTwoChars stationsStartWithSameChar) {
         final Collection<BookingStation> stations = Lists.newArrayList();
         for (StationListWithSameTopTwoChars.StationNameAndID stationNameAndID : stationsStartWithSameChar.getValue()) {
             stations.add(new BookingStation( stationNameAndID.getStation_id(),stationNameAndID.getTitle()));
         }
         return stations;
+    }
+
+    public static Collection<SelfStation> convertToSelfStations(Collection<Object[]> objectsToConvert){
+        Collection<SelfStation> selfStations = Lists.newArrayList();
+        for (Object[] station : objectsToConvert) {
+            selfStations.add(new SelfStation(station[0],station[1],station[2],station[3]));
+        }
+        return selfStations;
     }
 }

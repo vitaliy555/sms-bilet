@@ -11,9 +11,9 @@ import javax.persistence.Table;
 @Table(name = "UZStation")
 public class UZStation {
     @Id
-    @Column(name = "id")
+    @Column(name = "uz_id")
     private String id;
-    @Column(name = "title")
+    @Column(name = "uz_title")
     private String title;
 
     public UZStation() {

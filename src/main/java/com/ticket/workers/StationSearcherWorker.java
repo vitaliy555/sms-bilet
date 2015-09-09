@@ -21,7 +21,7 @@ public class StationSearcherWorker implements Runnable {
     public void run() {
         StationListWithSameTopTwoChars stationsStartWithSameChar = (StationListWithSameTopTwoChars) new TicketClient()
                 .execute(command);
-        stations.addAll(StationsConverter.convertToBookingStation(stationsStartWithSameChar));
+        stations.addAll(StationsConverter.convertToBookingStations(stationsStartWithSameChar));
 
     }
 }

@@ -10,9 +10,9 @@ import javax.persistence.Table;
 public class BookingStation {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "booking_id")
     private String id;
-    @Column(name = "title")
+    @Column(name = "booking_title")
     private String title;
 
     public BookingStation() {

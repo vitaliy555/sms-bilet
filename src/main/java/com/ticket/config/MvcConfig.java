@@ -3,6 +3,8 @@ package com.ticket.config;
 import java.util.Collections;
 import java.util.HashMap;
 
+import com.ticket.entity.SelfStation;
+import com.ticket.repositories.CustomRepositoryImpl;
 import com.ticket.services.TrainService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -67,4 +69,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     }
     @Bean
     public TrainService setUpTrainService(){return  new TrainService();}
+    @Bean
+    public CustomRepositoryImpl setupCustomRepository(){return new CustomRepositoryImpl();}
 }

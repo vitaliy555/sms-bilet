@@ -11,8 +11,11 @@ import com.ticket.config.connector.TicketClient;
 import com.ticket.config.connector.cmd.custom_cmd.SearchBookingStationsCmd;
 import com.ticket.config.connector.cmd.custom_cmd.SearchUZStationsCmd;
 import com.ticket.entity.BookingStation;
+import com.ticket.entity.SelfStation;
 import com.ticket.entity.UZStation;
 import com.ticket.repositories.BookingStationsRepository;
+import com.ticket.repositories.CustomRepository;
+import com.ticket.repositories.SelfStationsRepository;
 import com.ticket.repositories.UZStationsRepository;
 import com.ticket.services.Convertor.StationsConverter;
 import com.ticket.utils.CyrillicCharHelper;
@@ -25,6 +28,10 @@ public class StationService {
     BookingStationsRepository bookingStationsRepository;
     @Autowired
     UZStationsRepository uzStationsRepository;
+    @Autowired
+    CustomRepository customRepository;
+    @Autowired
+    SelfStationsRepository selfStationsRepository;
 
     /**
      * Loading stations to DB
@@ -36,8 +43,7 @@ public class StationService {
         return !(bookingStations.isEmpty() && uzStations.isEmpty());
     }
 
-
-     Collection<BookingStation> loadBookingStations() {
+    Collection<BookingStation> loadBookingStations() {
         final Collection<BookingStation> loaded = Lists.newArrayList();
         final ExecutorService executor = Executors.newFixedThreadPool(SmsTicketConstants.NTHREDS);
         for (String twoChars : CyrillicCharHelper.getCharCombinations()) {
@@ -54,7 +60,7 @@ public class StationService {
         return loaded;
     }
 
-     Collection<UZStation> loadUZStations() {
+    Collection<UZStation> loadUZStations() {
         final String stations = (String) new TicketClient().execute(new SearchUZStationsCmd());
         final Collection<UZStation> loaded = StationsConverter.convertToUzStations(stations);
         uzStationsRepository.save(loaded);
@@ -70,5 +76,12 @@ public class StationService {
             }
         }
         stations.removeAll(nullable);
+    }
+
+    public Collection<SelfStation> loadSelfStations() {
+        Collection<Object[]> commonStations = customRepository.findCommonStations();
+        Collection<SelfStation> selfStations = StationsConverter.convertToSelfStations(commonStations);
+        selfStationsRepository.save(selfStations);
+        return selfStations;
     }
 }
