@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class SelfStation {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int seq;
     @Column(name = "uz_id")
     private String uzId;
