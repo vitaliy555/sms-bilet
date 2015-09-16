@@ -1,4 +1,4 @@
-package com.ticket.services.Convertor;
+package com.ticket.services.convertor;
 
 import java.util.Collection;
 import java.util.Set;

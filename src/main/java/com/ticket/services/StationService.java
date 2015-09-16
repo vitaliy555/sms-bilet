@@ -17,7 +17,7 @@ import com.ticket.repositories.BookingStationsRepository;
 import com.ticket.repositories.CustomRepository;
 import com.ticket.repositories.SelfStationsRepository;
 import com.ticket.repositories.UZStationsRepository;
-import com.ticket.services.Convertor.StationsConverter;
+import com.ticket.services.convertor.StationsConverter;
 import com.ticket.utils.CyrillicCharHelper;
 import com.ticket.utils.SmsTicketConstants;
 import com.ticket.workers.StationSearcherWorker;

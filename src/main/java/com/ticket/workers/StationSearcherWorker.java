@@ -4,7 +4,7 @@ import com.ticket.config.connector.TicketClient;
 import com.ticket.config.connector.cmd.Command;
 import com.ticket.dto.StationListWithSameTopTwoChars;
 import com.ticket.entity.BookingStation;
-import com.ticket.services.Convertor.StationsConverter;
+import com.ticket.services.convertor.StationsConverter;
 
 import java.util.Collection;
 

@@ -9,30 +9,22 @@ import javax.persistence.Table;
 @Table(name = "Train")
 public class Train {
     @Id
-    private String numberTrain;
-    @Column(nullable = false)
+    private String number;
+    @Column
     private String route;
-    @Column(nullable = false)
-    private String timeMove;
-    @Column(nullable = false)
-    private String departureStation;
     @Column
-    private String timeArrivalToDepSt;
-    @Column(nullable = false)
-    private String timeDepartureToDepSt;
-    @Column(nullable = false)
+    private String schedule;
+    @Column
+    private String dispatchStation;
+    @Column
     private String arrivalStation;
-    @Column
-    private String timeArrivalToArrivSt;
-    @Column(nullable = false)
-    private String timeDepartureToArrivSt;
 
-    public String getNumberTrain() {
-        return numberTrain;
+    public String getNumber() {
+        return number;
     }
 
-    public void setNumberTrain(String numberTrain) {
-        this.numberTrain = numberTrain;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getRoute() {
@@ -43,36 +35,20 @@ public class Train {
         this.route = route;
     }
 
-    public String getTimeMove() {
-        return timeMove;
+    public String getSchedule() {
+        return schedule;
     }
 
-    public void setTimeMove(String timeMove) {
-        this.timeMove = timeMove;
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
     }
 
-    public String getDepartureStation() {
-        return departureStation;
+    public String getDispatchStation() {
+        return dispatchStation;
     }
 
-    public void setDepartureStation(String departureStation) {
-        this.departureStation = departureStation;
-    }
-
-    public String getTimeArrivalToDepSt() {
-        return timeArrivalToDepSt;
-    }
-
-    public void setTimeArrivalToDepSt(String timeArrivalToDepSt) {
-        this.timeArrivalToDepSt = timeArrivalToDepSt;
-    }
-
-    public String getTimeDepartureToDepSt() {
-        return timeDepartureToDepSt;
-    }
-
-    public void setTimeDepartureToDepSt(String timeDepartureToDepSt) {
-        this.timeDepartureToDepSt = timeDepartureToDepSt;
+    public void setDispatchStation(String dispatchStation) {
+        this.dispatchStation = dispatchStation;
     }
 
     public String getArrivalStation() {
@@ -81,21 +57,5 @@ public class Train {
 
     public void setArrivalStation(String arrivalStation) {
         this.arrivalStation = arrivalStation;
-    }
-
-    public String getTimeArrivalToArrivSt() {
-        return timeArrivalToArrivSt;
-    }
-
-    public void setTimeArrivalToArrivSt(String timeArrivalToArrivSt) {
-        this.timeArrivalToArrivSt = timeArrivalToArrivSt;
-    }
-
-    public String getTimeDepartureToArrivSt() {
-        return timeDepartureToArrivSt;
-    }
-
-    public void setTimeDepartureToArrivSt(String timeDepartureToArrivSt) {
-        this.timeDepartureToArrivSt = timeDepartureToArrivSt;
     }
 }

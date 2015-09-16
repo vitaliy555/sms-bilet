@@ -1,5 +1,7 @@
 package com.ticket.config.connector.cmd;
 
+import java.util.Map;
+
 import javax.ws.rs.core.Cookie;
 
 public interface Command<T> {
@@ -68,6 +70,8 @@ public interface Command<T> {
      * @return the method
      */
     Method getMethod();
+
+    Map<String, Object> getProperties();
 
     /**
      * Gets path.

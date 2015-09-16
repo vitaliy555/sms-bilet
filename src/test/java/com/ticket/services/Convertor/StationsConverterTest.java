@@ -1,11 +1,9 @@
-package com.ticket.services.Convertor;
+package com.ticket.services.convertor;
 
 import com.ticket.config.connector.TicketClient;
 import com.ticket.config.connector.cmd.custom_cmd.SearchUZStationsCmd;
 import com.ticket.entity.UZStation;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Collection;
 

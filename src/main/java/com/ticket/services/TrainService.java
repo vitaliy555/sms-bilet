@@ -1,13 +1,16 @@
 package com.ticket.services;
 
-
-import com.ticket.config.connector.TicketClient;
-import com.ticket.config.connector.cmd.custom_cmd.AllTrainsByRouteCmd;
-import com.ticket.config.connector.cmd.custom_cmd.SearchUZStationsCmd;
-import com.ticket.repositories.TrainRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import java.io.IOException;
 import java.util.Collection;
+
+import com.ticket.config.connector.cmd.custom_cmd.AllTrainsByFromToCmd;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+import com.ticket.entity.Train;
+import com.ticket.parsers.TrainParser;
+import com.ticket.services.convertor.TrainConverter;
 
 public class TrainService {
 
@@ -17,9 +20,10 @@ public class TrainService {
      * @param to
      * @return
      */
-    public Collection getTrainsByRoute(String from , String to){
-        String resultHtml = (String) new TicketClient().execute(new AllTrainsByRouteCmd(from, to));
-        return null;
+    public Collection<Train> getTrainsByRoute(String from, String to) throws IOException {
+        final Document fullHtml = Jsoup.connect(new AllTrainsByFromToCmd(from, to).getPath()).get();
+        Elements trainsInHtml = TrainParser.parsTrainsByRoute(fullHtml);
+        return TrainConverter.convertToTrains(trainsInHtml);
     }
 
     /**
@@ -28,7 +32,7 @@ public class TrainService {
      * @param to
      * @return
      */
-    public Collection getAvailableTrainsByRoute(String from , String to){
+    public Collection getAvailableTrainsByRoute(String from, String to) {
         return null;
     }
 }

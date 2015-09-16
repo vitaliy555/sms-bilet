@@ -1,5 +1,7 @@
 package com.ticket.config.connector.cmd;
 
+import java.util.Map;
+
 import javax.ws.rs.core.Cookie;
 
 abstract class AbstractBaseCommand<T> implements Command {
@@ -7,6 +9,7 @@ abstract class AbstractBaseCommand<T> implements Command {
     private String path;
     private Class<T> responseType;
     private Cookie cookie;
+    private Map<String, Object> properties;
 
     @Override
     public Method getMethod() {
@@ -41,5 +44,14 @@ abstract class AbstractBaseCommand<T> implements Command {
 
     public void setCookie(Cookie cookie) {
         this.cookie = cookie;
+    }
+
+    @Override
+    public Map<String, Object> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Map<String, Object> properties) {
+        this.properties = properties;
     }
 }
